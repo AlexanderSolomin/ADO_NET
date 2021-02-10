@@ -17,6 +17,7 @@ namespace ITMO.ADO_NET.U1E2.DBConnection
         SqlConnection connection = new SqlConnection();
         //string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=Northwind;
         //        Integrated Security=true";
+        string connectionString = GetConnectionStringByName("DBConnect.NorthwindConnectionString");
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +32,6 @@ namespace ITMO.ADO_NET.U1E2.DBConnection
                 returnValue = settings.ConnectionString;
             return returnValue;
         }
-        string connectionString = GetConnectionStringByName("DBConnect.NorthwindConnectionString");
         private void connection_StateChange(object sender, StateChangeEventArgs e)
         {
             connectToolStripMenuItem1.Enabled =
@@ -66,7 +66,6 @@ namespace ITMO.ADO_NET.U1E2.DBConnection
                 }
             }
         }
-
         private void disconnectToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (connection.State == ConnectionState.Open)
@@ -77,7 +76,6 @@ namespace ITMO.ADO_NET.U1E2.DBConnection
             else
                 MessageBox.Show("Соединение с базой данных уже закрыто");
         }
-
         private async void AsyncToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -114,6 +112,44 @@ namespace ITMO.ADO_NET.U1E2.DBConnection
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (connection)
+            {
+                if (connection.State == ConnectionState.Closed)
+                {
+                    MessageBox.Show("Подключитесь к базе!");
+                    return;
+                }
+                string cmdTxt = "SELECT COUNT(*) FROM Products";
+                SqlCommand cmdSql = new SqlCommand(cmdTxt, connection);
+                try
+                {
+                    int cmdReturn = (int)cmdSql.ExecuteScalar();
+                    label1.Text = cmdReturn.ToString();
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string cmdTxt = "SELECT COUNT(*) FROM Products";
+            try
+            {
+                int cmdReturn = WorkWithDataBase.ExecuteScalarMetod(connectionString, cmdTxt);
+                label2.Text = cmdReturn.ToString();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
-}  
+}
 
