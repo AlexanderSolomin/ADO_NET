@@ -150,6 +150,69 @@ namespace ITMO.ADO_NET.U1E2.DBConnection
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    SqlCommand command = connection.CreateCommand();
+                    command.CommandText = "SELECT ProductName, UnitPrice, " +
+                        "QuantityPerUnit FROM Products";
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ListViewItem newItem = listView1.Items.Add(reader["ProductName"].ToString());
+                        newItem.SubItems.Add(reader.GetDecimal(1).ToString());
+                        newItem.SubItems.Add(reader["QuantityPerUnit"].ToString());
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlTransaction sqlTran = connection.BeginTransaction();
+                SqlCommand command = connection.CreateCommand();
+                command.Transaction = sqlTran;
+                try
+                {
+                    command.CommandText = "INSERT INTO Products (ProductName, UnitPrice, " +
+                        "QuantityPerUnit) VALUES('Wrong size', 12, '1 boxes')";
+                    command.ExecuteNonQuery();
+
+                    command.CommandText = "INSERT INTO Products (ProductName, UnitPrice, " +
+                        "QuantityPerUnit) VALUES('Wrong color', 25, '100 ml')";
+                    command.ExecuteNonQuery();
+
+                    sqlTran.Commit();
+                    MessageBox.Show("Строки записаны в базу данных");
+                }
+                catch (SqlException ex)
+                {
+                    try
+                    {
+                        sqlTran.Rollback();
+                    }
+                    catch (Exception exRollback)
+                    {
+                        MessageBox.Show(exRollback.Message);
+                    }
+                    MessageBox.Show(ex.Message, "Ошибка!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
 

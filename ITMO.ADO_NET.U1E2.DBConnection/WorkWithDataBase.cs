@@ -15,6 +15,7 @@ namespace ITMO.ADO_NET.U1E2.DBConnection
             using (SqlConnection connection = new SqlConnection(connStr))
             {
                 SqlCommand cmdSql = new SqlCommand(cmdTxt, connection);
+                connection.Open();
                 return (int)cmdSql.ExecuteScalar();
             }
         }
