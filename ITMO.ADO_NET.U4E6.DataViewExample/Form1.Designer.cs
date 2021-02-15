@@ -54,7 +54,7 @@ namespace ITMO.ADO_NET.U4E6.DataViewExample
             this.CustomersGrid.Name = "CustomersGrid";
             this.CustomersGrid.RowHeadersWidth = 82;
             this.CustomersGrid.RowTemplate.Height = 33;
-            this.CustomersGrid.Size = new System.Drawing.Size(207, 222);
+            this.CustomersGrid.Size = new System.Drawing.Size(207, 298);
             this.CustomersGrid.TabIndex = 0;
             // 
             // SetDataViewPropertiesButton
@@ -137,14 +137,14 @@ namespace ITMO.ADO_NET.U4E6.DataViewExample
             this.OrdersGrid.Name = "OrdersGrid";
             this.OrdersGrid.RowHeadersWidth = 82;
             this.OrdersGrid.RowTemplate.Height = 33;
-            this.OrdersGrid.Size = new System.Drawing.Size(207, 222);
+            this.OrdersGrid.Size = new System.Drawing.Size(207, 298);
             this.OrdersGrid.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 234);
+            this.ClientSize = new System.Drawing.Size(567, 310);
             this.Controls.Add(this.FilterTextBox);
             this.Controls.Add(this.SortTextBox);
             this.Controls.Add(this.GetOrdersButton);
