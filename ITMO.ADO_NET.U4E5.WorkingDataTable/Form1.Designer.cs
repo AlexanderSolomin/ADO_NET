@@ -48,6 +48,10 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             this.OriginalDRVTextBox = new System.Windows.Forms.TextBox();
             this.CurrentDRVTextBox = new System.Windows.Forms.TextBox();
             this.RowStateTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CustomersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.northwindDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -58,20 +62,22 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomersDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.CustomersDataGridView.Location = new System.Drawing.Point(11, 6);
+            this.CustomersDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CustomersDataGridView.Name = "CustomersDataGridView";
             this.CustomersDataGridView.RowHeadersWidth = 82;
             this.CustomersDataGridView.RowTemplate.Height = 33;
-            this.CustomersDataGridView.Size = new System.Drawing.Size(776, 290);
+            this.CustomersDataGridView.Size = new System.Drawing.Size(216, 215);
             this.CustomersDataGridView.TabIndex = 0;
-            this.CustomersDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomersDataGridView_CellContentClick);
+            this.CustomersDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomersDataGridView_CellClick);
             // 
             // FillTableButton
             // 
-            this.FillTableButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.FillTableButton.Location = new System.Drawing.Point(12, 369);
+            this.FillTableButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FillTableButton.Location = new System.Drawing.Point(235, 6);
+            this.FillTableButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.FillTableButton.Name = "FillTableButton";
-            this.FillTableButton.Size = new System.Drawing.Size(96, 69);
+            this.FillTableButton.Size = new System.Drawing.Size(48, 36);
             this.FillTableButton.TabIndex = 1;
             this.FillTableButton.Text = "fill table";
             this.FillTableButton.UseVisualStyleBackColor = true;
@@ -195,10 +201,11 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             // 
             // AddRowButton
             // 
-            this.AddRowButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.AddRowButton.Location = new System.Drawing.Point(114, 369);
+            this.AddRowButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddRowButton.Location = new System.Drawing.Point(287, 6);
+            this.AddRowButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddRowButton.Name = "AddRowButton";
-            this.AddRowButton.Size = new System.Drawing.Size(101, 69);
+            this.AddRowButton.Size = new System.Drawing.Size(50, 36);
             this.AddRowButton.TabIndex = 1;
             this.AddRowButton.Text = "add row";
             this.AddRowButton.UseVisualStyleBackColor = true;
@@ -206,10 +213,11 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             // 
             // DeleteRowButton
             // 
-            this.DeleteRowButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.DeleteRowButton.Location = new System.Drawing.Point(221, 369);
+            this.DeleteRowButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteRowButton.Location = new System.Drawing.Point(339, 6);
+            this.DeleteRowButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeleteRowButton.Name = "DeleteRowButton";
-            this.DeleteRowButton.Size = new System.Drawing.Size(100, 69);
+            this.DeleteRowButton.Size = new System.Drawing.Size(50, 36);
             this.DeleteRowButton.TabIndex = 1;
             this.DeleteRowButton.Text = "del row";
             this.DeleteRowButton.UseVisualStyleBackColor = true;
@@ -217,10 +225,11 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             // 
             // UpdateValueButton
             // 
-            this.UpdateValueButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.UpdateValueButton.Location = new System.Drawing.Point(464, 369);
+            this.UpdateValueButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpdateValueButton.Location = new System.Drawing.Point(235, 148);
+            this.UpdateValueButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UpdateValueButton.Name = "UpdateValueButton";
-            this.UpdateValueButton.Size = new System.Drawing.Size(104, 69);
+            this.UpdateValueButton.Size = new System.Drawing.Size(154, 22);
             this.UpdateValueButton.TabIndex = 1;
             this.UpdateValueButton.Text = "upd val";
             this.UpdateValueButton.UseVisualStyleBackColor = true;
@@ -228,10 +237,11 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             // 
             // AcceptChangesButton
             // 
-            this.AcceptChangesButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.AcceptChangesButton.Location = new System.Drawing.Point(574, 369);
+            this.AcceptChangesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AcceptChangesButton.Location = new System.Drawing.Point(235, 174);
+            this.AcceptChangesButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AcceptChangesButton.Name = "AcceptChangesButton";
-            this.AcceptChangesButton.Size = new System.Drawing.Size(95, 69);
+            this.AcceptChangesButton.Size = new System.Drawing.Size(154, 22);
             this.AcceptChangesButton.TabIndex = 1;
             this.AcceptChangesButton.Text = "save change";
             this.AcceptChangesButton.UseVisualStyleBackColor = true;
@@ -239,10 +249,11 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             // 
             // RejectChangesButton
             // 
-            this.RejectChangesButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.RejectChangesButton.Location = new System.Drawing.Point(675, 369);
+            this.RejectChangesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RejectChangesButton.Location = new System.Drawing.Point(235, 200);
+            this.RejectChangesButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RejectChangesButton.Name = "RejectChangesButton";
-            this.RejectChangesButton.Size = new System.Drawing.Size(113, 69);
+            this.RejectChangesButton.Size = new System.Drawing.Size(154, 21);
             this.RejectChangesButton.TabIndex = 1;
             this.RejectChangesButton.Text = "reject change";
             this.RejectChangesButton.UseVisualStyleBackColor = true;
@@ -250,41 +261,89 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             // 
             // CellValueTextBox
             // 
-            this.CellValueTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.CellValueTextBox.Location = new System.Drawing.Point(12, 332);
+            this.CellValueTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CellValueTextBox.Location = new System.Drawing.Point(287, 46);
+            this.CellValueTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CellValueTextBox.Name = "CellValueTextBox";
-            this.CellValueTextBox.Size = new System.Drawing.Size(203, 31);
+            this.CellValueTextBox.Size = new System.Drawing.Size(102, 20);
             this.CellValueTextBox.TabIndex = 2;
             // 
             // OriginalDRVTextBox
             // 
-            this.OriginalDRVTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.OriginalDRVTextBox.Location = new System.Drawing.Point(221, 332);
+            this.OriginalDRVTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.OriginalDRVTextBox.Location = new System.Drawing.Point(287, 70);
+            this.OriginalDRVTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.OriginalDRVTextBox.Name = "OriginalDRVTextBox";
-            this.OriginalDRVTextBox.Size = new System.Drawing.Size(150, 31);
+            this.OriginalDRVTextBox.Size = new System.Drawing.Size(102, 20);
             this.OriginalDRVTextBox.TabIndex = 3;
             // 
             // CurrentDRVTextBox
             // 
-            this.CurrentDRVTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.CurrentDRVTextBox.Location = new System.Drawing.Point(377, 332);
+            this.CurrentDRVTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CurrentDRVTextBox.Location = new System.Drawing.Point(287, 94);
+            this.CurrentDRVTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CurrentDRVTextBox.Name = "CurrentDRVTextBox";
-            this.CurrentDRVTextBox.Size = new System.Drawing.Size(174, 31);
+            this.CurrentDRVTextBox.Size = new System.Drawing.Size(102, 20);
             this.CurrentDRVTextBox.TabIndex = 4;
             // 
             // RowStateTextBox
             // 
-            this.RowStateTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.RowStateTextBox.Location = new System.Drawing.Point(557, 332);
+            this.RowStateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RowStateTextBox.Location = new System.Drawing.Point(287, 118);
+            this.RowStateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RowStateTextBox.Name = "RowStateTextBox";
-            this.RowStateTextBox.Size = new System.Drawing.Size(231, 31);
+            this.RowStateTextBox.Size = new System.Drawing.Size(102, 20);
             this.RowStateTextBox.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(232, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "value";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(232, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "original";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(232, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "current";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(232, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "state";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(400, 232);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.RowStateTextBox);
             this.Controls.Add(this.CurrentDRVTextBox);
             this.Controls.Add(this.OriginalDRVTextBox);
@@ -296,6 +355,7 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             this.Controls.Add(this.AddRowButton);
             this.Controls.Add(this.FillTableButton);
             this.Controls.Add(this.CustomersDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -326,6 +386,10 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
         private System.Windows.Forms.TextBox OriginalDRVTextBox;
         private System.Windows.Forms.TextBox CurrentDRVTextBox;
         private System.Windows.Forms.TextBox RowStateTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

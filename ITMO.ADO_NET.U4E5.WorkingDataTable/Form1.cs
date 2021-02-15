@@ -33,7 +33,8 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
 
         private void AddRowButton_Click(object sender, EventArgs e)
         {
-            NorthwindDataSet.CustomersRow NewRow = (NorthwindDataSet.CustomersRow)northwindDataSet1.Customers.NewRow();
+            NorthwindDataSet.CustomersRow NewRow = 
+                (NorthwindDataSet.CustomersRow)northwindDataSet1.Customers.NewRow();
             NewRow.CustomerID = "WINGT";
             NewRow.CompanyName = "Wingtip Toys";
             NewRow.ContactName = "Steve Lasker";
@@ -110,7 +111,7 @@ namespace ITMO.ADO_NET.U4E5.WorkingDataTable
             UpdateRowVersionDisplay();
         }
 
-        private void CustomersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CustomersDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             CellValueTextBox.Text = CustomersDataGridView.CurrentCell.Value.ToString();
             UpdateRowVersionDisplay();
