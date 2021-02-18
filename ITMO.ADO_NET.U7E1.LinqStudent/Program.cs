@@ -50,9 +50,21 @@ namespace ITMO.ADO_NET.U7E1.LinqStudent
                 select student).ToList();
             foreach (Student student in studentList)
             {
-                Console.WriteLine($"{nameof(studentList)} {student.Last}, {student.First} sc {student.Scores[0]}");
+                Console.WriteLine($"{nameof(studentList)} {student.Last}, {student.First} score {student.Scores[0]}");
             }
 
+            var studentQuery2 =
+                from student in students
+                group student by student.Last[0];
+
+            foreach (var studentGroup in studentQuery2)
+            {
+                Console.WriteLine(studentGroup.Key);
+                foreach (var student in studentGroup)
+                {
+                    Console.WriteLine($"  {student.Last}, {student.First}");
+                }
+            }
         }
     }
 }
