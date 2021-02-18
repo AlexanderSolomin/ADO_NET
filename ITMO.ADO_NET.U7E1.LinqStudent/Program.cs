@@ -65,6 +65,72 @@ namespace ITMO.ADO_NET.U7E1.LinqStudent
                     Console.WriteLine($"  {student.Last}, {student.First}");
                 }
             }
+
+            var studentQuery3 =
+                from student in students
+                group student by student.Last[0];
+            foreach (var groupOfStudents in studentQuery3)
+            {
+                Console.WriteLine(groupOfStudents.Key);
+                foreach (var student in groupOfStudents)
+                {
+                    Console.WriteLine($"  {student.Last}, {student.First}");
+                }
+            }
+
+            var studentQuery4 =
+                from student in students
+                group student by student.Last[0] into studentGroup
+                orderby studentGroup.Key
+                select studentGroup;
+            foreach (var groupOfStudents in studentQuery4)
+            {
+                Console.WriteLine(groupOfStudents.Key);
+                foreach (var student in groupOfStudents)
+                {
+                    Console.WriteLine($"  {student.Last}, {student.First}");
+                }
+            }
+
+            Console.WriteLine("\nstudentQuery5\n");
+
+            var studentQuery5 =
+                from student in students
+                let totalScore = student.Scores[0] + student.Scores[1] + student.Scores[2] + student.Scores[3]
+                where totalScore / 4 < student.Scores[0]
+                select student.Last + " " + student.First + " " + totalScore/4 + " " + student.Scores[0];
+            foreach (var s in studentQuery5)
+            {
+                Console.WriteLine(s);
+            }
+
+            var studentQuery6 =
+               from student in students
+               let totalScore = student.Scores[0] + student.Scores[1] + student.Scores[2] + student.Scores[3]
+               select totalScore;
+            Console.WriteLine($"\nAverage score: {studentQuery6.Average()}");
+
+            IEnumerable<string> studentQuery7 =
+                from student in students
+                where student.Last == "Garcia"
+                select student.First;
+            Console.WriteLine("\nThe Garcias in the class are:");
+            foreach (string s in studentQuery7)
+            {
+                Console.WriteLine(s);
+            }
+
+            double averageScore = studentQuery6.Average();
+
+            var studentQuery8 =
+                from student in students
+                let totalScore = student.Scores[0] + student.Scores[1] + student.Scores[2] + student.Scores[3]
+                where totalScore < averageScore
+                select new { id = student.ID, score = totalScore};
+            foreach (var item in studentQuery8)
+            {
+                Console.WriteLine($"\nID: {item.id}, Score: {item.score}");
+            }
         }
     }
 }
