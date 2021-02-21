@@ -26,8 +26,7 @@ namespace ITMO.ADO_NET.U1E2.DBConnection
         static string GetConnectionStringByName(string name)
         {
             string returnValue = null;
-            ConnectionStringSettings settings =
-             ConfigurationManager.ConnectionStrings[name];
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[name];
             if (settings != null)
                 returnValue = settings.ConnectionString;
             return returnValue;
