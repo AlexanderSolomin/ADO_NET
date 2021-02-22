@@ -15,7 +15,6 @@ namespace ITMO.ADO_NET.U0E0.Test
 {
     public partial class Form1 : Form
     {
-        SqlConnection connection = new SqlConnection();
         string connectionString = GetConnectionStringByName("DBConnect.AW2016ConnectionString");
         static string GetConnectionStringByName(string name)
         {
@@ -57,6 +56,7 @@ namespace ITMO.ADO_NET.U0E0.Test
                         total += double.Parse(dr[2].ToString());
                     }
                     totalLabel.Text = "Total: " + total.ToString("f2");
+                    dr.Close();
                 }
                 catch (Exception ex)
                 {

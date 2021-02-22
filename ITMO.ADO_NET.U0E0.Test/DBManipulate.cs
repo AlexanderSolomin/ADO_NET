@@ -19,7 +19,7 @@ namespace ITMO.ADO_NET.U0E0.Test
                 return (int)cmdSql.ExecuteScalar();
             }
         }
-        //public static object SalesTable(string cs, DateTime dateFrom, DateTime dateTo)
+        //public static SqlDataReader SalesRdr(string cs, DateTime dateFrom, DateTime dateTo)
         //{
         //    using (SqlConnection connection = new SqlConnection(cs))
         //    {
