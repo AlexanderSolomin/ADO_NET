@@ -29,7 +29,7 @@ namespace ITMO.ADO_NET.U0E0.Test
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFill = new System.Windows.Forms.Button();
+            this.btnFillSales = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerTo = new System.Windows.Forms.DateTimePicker();
@@ -42,21 +42,23 @@ namespace ITMO.ADO_NET.U0E0.Test
             this.totalLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnFill
+            // btnFillSales
             // 
-            this.btnFill.Location = new System.Drawing.Point(219, 12);
-            this.btnFill.Name = "btnFill";
-            this.btnFill.Size = new System.Drawing.Size(75, 23);
-            this.btnFill.TabIndex = 0;
-            this.btnFill.Text = "Fill";
-            this.btnFill.UseVisualStyleBackColor = true;
-            this.btnFill.Click += new System.EventHandler(this.btnFill_Click);
+            this.btnFillSales.Location = new System.Drawing.Point(438, 23);
+            this.btnFillSales.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnFillSales.Name = "btnFillSales";
+            this.btnFillSales.Size = new System.Drawing.Size(150, 44);
+            this.btnFillSales.TabIndex = 0;
+            this.btnFillSales.Text = "Fill Sales";
+            this.btnFillSales.UseVisualStyleBackColor = true;
+            this.btnFillSales.Click += new System.EventHandler(this.btnFillSales_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(300, 12);
+            this.btnSave.Location = new System.Drawing.Point(600, 23);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(150, 44);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save to xml";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -64,33 +66,37 @@ namespace ITMO.ADO_NET.U0E0.Test
             // 
             // dateTimePickerFrom
             // 
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(62, 12);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(124, 23);
+            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(142, 20);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(280, 31);
             this.dateTimePickerFrom.TabIndex = 2;
             // 
             // dateTimePickerTo
             // 
-            this.dateTimePickerTo.Location = new System.Drawing.Point(62, 38);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(124, 73);
+            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(142, 20);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(280, 31);
             this.dateTimePickerTo.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 18);
+            this.label1.Location = new System.Drawing.Point(52, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.Size = new System.Drawing.Size(61, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "From";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 43);
+            this.label2.Location = new System.Drawing.Point(52, 83);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 13);
+            this.label2.Size = new System.Drawing.Size(30, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "to";
             // 
@@ -105,9 +111,10 @@ namespace ITMO.ADO_NET.U0E0.Test
             this.orderDate,
             this.orderTotal});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 68);
+            this.listView1.Location = new System.Drawing.Point(24, 131);
+            this.listView1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(362, 370);
+            this.listView1.Size = new System.Drawing.Size(720, 708);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -130,16 +137,17 @@ namespace ITMO.ADO_NET.U0E0.Test
             // totalLabel
             // 
             this.totalLabel.AutoSize = true;
-            this.totalLabel.Location = new System.Drawing.Point(216, 45);
+            this.totalLabel.Location = new System.Drawing.Point(432, 87);
+            this.totalLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(0, 13);
+            this.totalLabel.Size = new System.Drawing.Size(0, 25);
             this.totalLabel.TabIndex = 7;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 450);
+            this.ClientSize = new System.Drawing.Size(772, 865);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label2);
@@ -147,7 +155,8 @@ namespace ITMO.ADO_NET.U0E0.Test
             this.Controls.Add(this.dateTimePickerTo);
             this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnFill);
+            this.Controls.Add(this.btnFillSales);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Form1";
             this.Text = "Sales";
             this.ResumeLayout(false);
@@ -157,7 +166,7 @@ namespace ITMO.ADO_NET.U0E0.Test
 
         #endregion
 
-        private System.Windows.Forms.Button btnFill;
+        private System.Windows.Forms.Button btnFillSales;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
         private System.Windows.Forms.DateTimePicker dateTimePickerTo;

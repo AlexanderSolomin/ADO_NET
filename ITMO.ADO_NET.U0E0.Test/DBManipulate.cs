@@ -5,35 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace ITMO.ADO_NET.U0E0.Test
 {
     class DBManipulate
     {
-        public static int ExecuteScalarMethod(string cs, string cmdTxt)
+        public static int ScalarMethod(string cs, string cmd)
         {
             using (SqlConnection connection = new SqlConnection(cs))
             {
-                SqlCommand cmdSql = new SqlCommand(cmdTxt, connection);
+                SqlCommand cmdSql = new SqlCommand(cmd, connection);
                 connection.Open();
                 return (int)cmdSql.ExecuteScalar();
             }
         }
-        //public static SqlDataReader SalesRdr(string cs, DateTime dateFrom, DateTime dateTo)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(cs))
-        //    {
-        //        string sqlDateFormat = "yyyy-MM-dd";
-        //        string cmdSales = $"SELECT TOP(100) SalesOrderID, OrderDate, TotalDue " +
-        //            $"FROM Sales.SalesOrderHeader " +
-        //            $"WHERE OrderDate BETWEEN '{dateFrom.ToString(sqlDateFormat)}' " +
-        //            $"AND '{dateTo.ToString(sqlDateFormat)}'";
-        //        SqlCommand cmdSql = new SqlCommand(cmdSales, connection);
-        //        connection.Open();
-        //        SqlDataReader dr = cmdSql.ExecuteReader();
-
-        //        return dr;
-        //    }
-        //}
+        public static DataTable DTable(string cs, string cmd)
+        {
+            using (SqlConnection connection = new SqlConnection(cs))
+            {
+                SqlCommand cmdSql = new SqlCommand(cmd, connection);
+                DataTable dt = new DataTable();
+                connection.Open();
+                dt.Load(cmdSql.ExecuteReader());
+                return dt;
+            }
+        }
     }
 }
