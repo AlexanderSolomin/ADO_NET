@@ -15,7 +15,7 @@ namespace ITMO.ADO_NET.U0E0.Test
 {
     public partial class Form1 : Form
     {
-        static string sqlDateFormat = "yyyy-MM-dd";
+        string sqlDateFormat = "yyyy-MM-dd";
         string connectionString = GetConnectionStringByName("DBConnect.AW2016ConnectionString");
         static string GetConnectionStringByName(string name)
         {
@@ -39,7 +39,7 @@ namespace ITMO.ADO_NET.U0E0.Test
                 $"AND '{dateTimePickerTo.Value.ToString(sqlDateFormat)}'";
             try
             {
-                DataTable dt = DBManipulate.DTable(connectionString, cmdSales);
+                DataTable dt = DBManipulate.RdrTable(connectionString, cmdSales);
                 foreach (DataRow row in dt.Rows)
                 {
                     ListViewItem item = new ListViewItem(row[0].ToString());

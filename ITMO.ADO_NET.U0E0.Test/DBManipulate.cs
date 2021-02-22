@@ -9,7 +9,7 @@ using System.Data;
 
 namespace ITMO.ADO_NET.U0E0.Test
 {
-    class DBManipulate
+     class DBManipulate
     {
         public static int ScalarMethod(string cs, string cmd)
         {
@@ -20,7 +20,7 @@ namespace ITMO.ADO_NET.U0E0.Test
                 return (int)cmdSql.ExecuteScalar();
             }
         }
-        public static DataTable DTable(string cs, string cmd)
+        public static DataTable RdrTable(string cs, string cmd)
         {
             using (SqlConnection connection = new SqlConnection(cs))
             {
