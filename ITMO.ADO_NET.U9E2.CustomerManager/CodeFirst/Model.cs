@@ -48,5 +48,9 @@ public class Order
         return s;
     }
 }
+public class VipOrder : Order
+{
+    public string status { get; set; }
+}
 
 
