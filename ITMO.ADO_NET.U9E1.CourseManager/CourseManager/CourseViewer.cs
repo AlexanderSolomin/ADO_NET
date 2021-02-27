@@ -78,5 +78,11 @@ namespace CourseManager
             this.Close();
             schoolContext.Dispose();
         }
+
+        private void viewOffices_Click(object sender, EventArgs e)
+        {
+            OfficeAssignment officeForm = new OfficeAssignment();
+            officeForm.Visible = true;
+        }
     }
 }

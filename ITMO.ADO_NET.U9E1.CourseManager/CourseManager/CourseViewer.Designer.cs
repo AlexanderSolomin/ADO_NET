@@ -33,13 +33,14 @@ namespace CourseManager
             this.closeForm = new System.Windows.Forms.Button();
             this.courseGridView = new System.Windows.Forms.DataGridView();
             this.saveChanges = new System.Windows.Forms.Button();
+            this.viewOffices = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.courseGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // departmentList
             // 
             this.departmentList.FormattingEnabled = true;
-            this.departmentList.Location = new System.Drawing.Point(12, 12);
+            this.departmentList.Location = new System.Drawing.Point(12, 41);
             this.departmentList.Name = "departmentList";
             this.departmentList.Size = new System.Drawing.Size(124, 21);
             this.departmentList.TabIndex = 0;
@@ -47,7 +48,7 @@ namespace CourseManager
             // 
             // closeForm
             // 
-            this.closeForm.Location = new System.Drawing.Point(155, 10);
+            this.closeForm.Location = new System.Drawing.Point(12, 12);
             this.closeForm.Name = "closeForm";
             this.closeForm.Size = new System.Drawing.Size(75, 23);
             this.closeForm.TabIndex = 1;
@@ -58,14 +59,14 @@ namespace CourseManager
             // courseGridView
             // 
             this.courseGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.courseGridView.Location = new System.Drawing.Point(12, 49);
+            this.courseGridView.Location = new System.Drawing.Point(12, 85);
             this.courseGridView.Name = "courseGridView";
-            this.courseGridView.Size = new System.Drawing.Size(310, 389);
+            this.courseGridView.Size = new System.Drawing.Size(310, 353);
             this.courseGridView.TabIndex = 2;
             // 
             // saveChanges
             // 
-            this.saveChanges.Location = new System.Drawing.Point(247, 10);
+            this.saveChanges.Location = new System.Drawing.Point(93, 12);
             this.saveChanges.Name = "saveChanges";
             this.saveChanges.Size = new System.Drawing.Size(75, 23);
             this.saveChanges.TabIndex = 3;
@@ -73,11 +74,22 @@ namespace CourseManager
             this.saveChanges.UseVisualStyleBackColor = true;
             this.saveChanges.Click += new System.EventHandler(this.saveChanges_Click);
             // 
+            // viewOffices
+            // 
+            this.viewOffices.Location = new System.Drawing.Point(250, 12);
+            this.viewOffices.Name = "viewOffices";
+            this.viewOffices.Size = new System.Drawing.Size(75, 23);
+            this.viewOffices.TabIndex = 3;
+            this.viewOffices.Text = "Offices";
+            this.viewOffices.UseVisualStyleBackColor = true;
+            this.viewOffices.Click += new System.EventHandler(this.viewOffices_Click);
+            // 
             // CourseViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 450);
+            this.Controls.Add(this.viewOffices);
             this.Controls.Add(this.saveChanges);
             this.Controls.Add(this.courseGridView);
             this.Controls.Add(this.closeForm);
@@ -96,6 +108,7 @@ namespace CourseManager
         private System.Windows.Forms.Button closeForm;
         private System.Windows.Forms.DataGridView courseGridView;
         private System.Windows.Forms.Button saveChanges;
+        private System.Windows.Forms.Button viewOffices;
     }
 }
 
