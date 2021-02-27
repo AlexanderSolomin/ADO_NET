@@ -48,6 +48,7 @@ public class Order
         return s;
     }
 }
+[Table("VipOrders")]
 public class VipOrder : Order
 {
     public string status { get; set; }

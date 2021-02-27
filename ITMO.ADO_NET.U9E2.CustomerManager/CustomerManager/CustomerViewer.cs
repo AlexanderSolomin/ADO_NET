@@ -21,7 +21,7 @@ namespace CustomerManager
         public CustomerViewer()
         {
             InitializeComponent();
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<SampleContext>());
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<SampleContext>());
         }
         private void Output()
         {
