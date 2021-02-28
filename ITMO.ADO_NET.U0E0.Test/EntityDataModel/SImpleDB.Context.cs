@@ -13,10 +13,10 @@ namespace EntityDataModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class SimpleDBEntities : DbContext
     {
-        public Model1Container()
-            : base("name=Model1Container")
+        public SimpleDBEntities()
+            : base("name=SimpleDBEntities")
         {
         }
     
@@ -25,8 +25,8 @@ namespace EntityDataModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

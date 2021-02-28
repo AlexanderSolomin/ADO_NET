@@ -4,102 +4,81 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="Products" EntityType="Model1.Store.Products" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Customers" EntityType="Model1.Store.Customers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Orders" EntityType="Model1.Store.Orders" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="CustomerOrder" Association="Model1.Store.FK_CustomerOrder">
-      <End Role="Customer" EntitySet="Customers" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-    <AssociationSet Name="ProductOrder" Association="Model1.Store.FK_ProductOrder">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Products">
-    <Key>
-      <PropertyRef Name="ProductId" />
-    </Key>
-    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Price" Type="float" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Customers">
-    <Key>
-      <PropertyRef Name="CustomerId" />
-    </Key>
-    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Orders">
-    <Key>
-      <PropertyRef Name="OrderId" />
-    </Key>
-    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductID" Type="int" Nullable="false" />
-    <Property Name="CustomerID" Type="int" Nullable="false" />
-    <Property Name="ProductQty" Type="int" Nullable="false" />
-    <Property Name="OrderDate" Type="datetime" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_CustomerOrder">
-    <End Role="Customer" Type="Model1.Store.Customers" Multiplicity="1" />
-    <End Role="Order" Type="Model1.Store.Orders" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
-        <PropertyRef Name="CustomerId" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="CustomerID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProductOrder">
-    <End Role="Product" Type="Model1.Store.Products" Multiplicity="1" />
-    <End Role="Order" Type="Model1.Store.Orders" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ProductId" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="ProductID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Products" EntityType="Model1.Product" />
-          <AssociationSet Name="CustomerOrder" Association="Model1.FK_CustomerOrder">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Order" EntitySet="Orders" />
+      <Schema Namespace="SimpleDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="ProductQty" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CustomerOrder">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductOrder">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SimpleDBModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CustomerOrder" Association="Self.FK_CustomerOrder">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
-          <EntitySet Name="Customers" EntityType="Model1.Customer" />
-          <EntitySet Name="Orders" EntityType="Model1.Order" />
-          <AssociationSet Name="ProductOrder" Association="Model1.FK_ProductOrder">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="Order" EntitySet="Orders" />
+          <AssociationSet Name="FK_ProductOrder" Association="Self.FK_ProductOrder">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
         </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SimpleDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomerId" />
           </Key>
           <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerName" Type="String" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Model1.FK_CustomerOrder" FromRole="Customer" ToRole="Order" />
-        </EntityType>
-        <EntityType Name="Product">
-          <Key>
-            <PropertyRef Name="ProductId" />
-          </Key>
-          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductName" Type="String" Nullable="false" />
-          <Property Name="Price" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Model1.FK_ProductOrder" FromRole="Product" ToRole="Order" />
+          <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_CustomerOrder" FromRole="Customers" ToRole="Orders" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -109,88 +88,111 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="CustomerID" Type="Int32" Nullable="false" />
           <Property Name="ProductQty" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Model1.FK_CustomerOrder" FromRole="Order" ToRole="Customer" />
-          <Property Name="OrderDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="None" />
-          <NavigationProperty Name="Product" Relationship="Model1.FK_ProductOrder" FromRole="Order" ToRole="Product" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerOrder" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductOrder" FromRole="Orders" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_ProductOrder" FromRole="Products" ToRole="Orders" />
         </EntityType>
         <Association Name="FK_CustomerOrder">
-          <End Type="Model1.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="Model1.Order" Role="Order" Multiplicity="*" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer">
+            <Principal Role="Customers">
               <PropertyRef Name="CustomerId" />
             </Principal>
-            <Dependent Role="Order">
+            <Dependent Role="Orders">
               <PropertyRef Name="CustomerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ProductOrder">
-          <End Type="Model1.Product" Role="Product" Multiplicity="1" />
-          <End Type="Model1.Order" Role="Order" Multiplicity="*" />
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
+            <Principal Role="Products">
               <PropertyRef Name="ProductId" />
             </Principal>
-            <Dependent Role="Order">
+            <Dependent Role="Orders">
               <PropertyRef Name="ProductID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="SimpleDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="FK_CustomerOrder" Association="Self.FK_CustomerOrder">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductOrder" Association="Self.FK_ProductOrder">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
-    <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Product)">
-        <MappingFragment StoreEntitySet="Products">
-          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Customers">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Customer)">
-        <MappingFragment StoreEntitySet="Customers">
-          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Order)">
-        <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-          <ScalarProperty Name="ProductQty" ColumnName="ProductQty" />
-          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
-</Mapping></edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SimpleDBModelStoreContainer" CdmEntityContainer="SimpleDBEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="SimpleDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="SimpleDBModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ProductQty" ColumnName="ProductQty" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="SimpleDBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <edmx:Connection>
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
       </DesignerInfoPropertySet>
-    </edmx:Connection>
-    <edmx:Options>
+    </Connection>
+    <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
-    </edmx:Options>
+    </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <edmx:Diagrams>
-    </edmx:Diagrams>
-  </edmx:Designer>
+    <Diagrams></Diagrams>
+  </Designer>
 </edmx:Edmx>
